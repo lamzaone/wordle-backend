@@ -57,6 +57,20 @@ class Settings(BaseSettings):
     score_remaining_attempt_bonus: int = 10
     score_daily_bonus: int = 20
 
+    @field_validator("debug", mode="before")
+    @classmethod
+    def parse_debug(cls, value: Any) -> bool:
+        if isinstance(value, bool):
+            return value
+        if value is None or value == "":
+            return False
+        normalized = str(value).strip().lower()
+        if normalized in {"1", "true", "yes", "on", "debug"}:
+            return True
+        if normalized in {"0", "false", "no", "off", "release", "production"}:
+            return False
+        return value
+
     @field_validator("allowed_word_lengths", mode="before")
     @classmethod
     def parse_allowed_word_lengths(cls, value: Any) -> list[int]:
