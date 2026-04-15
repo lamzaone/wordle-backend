@@ -1,0 +1,15 @@
+import os
+
+os.environ["APP_NAME"] = "Wordle Backend Test"
+os.environ["ENVIRONMENT"] = "test"
+os.environ["DEBUG"] = "false"
+os.environ["API_V1_PREFIX"] = ""
+os.environ["DATABASE_URL"] = "postgresql+asyncpg://postgres:password@db.example.supabase.co:5432/postgres"
+os.environ["SUPABASE_URL"] = "https://example.supabase.co"
+os.environ["SUPABASE_ANON_KEY"] = "test-anon-key"
+os.environ["SUPABASE_JWKS_URL"] = "https://example.supabase.co/auth/v1/.well-known/jwks.json"
+os.environ["SUPABASE_JWT_ISSUER"] = "https://example.supabase.co/auth/v1"
+os.environ["SUPABASE_JWT_AUDIENCE"] = "authenticated"
+os.environ["SUPABASE_JWT_ALGORITHMS"] = "RS256"
+os.environ["ALLOWED_WORD_LENGTHS"] = "4,5,6,7"
+os.environ["ENFORCE_DICTIONARY_GUESSES"] = "false"
